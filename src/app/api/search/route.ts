@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     if (type === 'all' || type === 'projects') {
       const projects = await searchProjects(query);
       results = [...results, ...projects.map(project => ({
-        type: 'project',
+        type: 'project' as const,
         title: project.title,
         slug: project.slug,
         summary: project.summary,
@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
     if (type === 'all' || type === 'posts') {
       const posts = await searchPosts(query);
       results = [...results, ...posts.map(post => ({
-        type: 'post',
+        type: 'post' as const,
         title: post.title,
         slug: post.slug,
         summary: post.summary,

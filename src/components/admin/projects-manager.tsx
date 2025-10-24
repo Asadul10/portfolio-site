@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -24,7 +25,7 @@ export default function ProjectsManager() {
 
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [fetchProjects]);
 
   const fetchProjects = async () => {
     try {
@@ -142,10 +143,11 @@ export default function ProjectsManager() {
           <Card key={project.slug} className="overflow-hidden">
             <div className="aspect-video bg-gray-100 relative">
               {project.cover ? (
-                <img
+                <Image
                   src={project.cover}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">

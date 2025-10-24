@@ -36,7 +36,7 @@ export default function MDXSiteConfigManager() {
 
   useEffect(() => {
     fetchConfig();
-  }, []);
+  }, [fetchConfig]);
 
   const fetchConfig = async () => {
     try {

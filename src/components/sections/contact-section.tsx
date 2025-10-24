@@ -21,7 +21,7 @@ export function ContactSection() {
               Get In Touch
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              I'm always interested in new opportunities and collaborations
+              I&apos;m always interested in new opportunities and collaborations
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export function ContactSection() {
                 <CardHeader>
                   <CardTitle>Send me a message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and I'll get back to you as soon as possible
+                    Fill out the form below and I&apos;ll get back to you as soon as possible
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -98,7 +98,7 @@ export function ContactSection() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>What I'm Looking For</CardTitle>
+                  <CardTitle>What I&apos;m Looking For</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-start space-x-3">

@@ -106,7 +106,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <span className="block">Hi, I'm</span>
+                <span className="block">Hi, I&apos;m</span>
                 <span className="gradient-text bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent">
                   {isVisible && <TypingText text={siteConfig.name} delay={1000} />}
                 </span>

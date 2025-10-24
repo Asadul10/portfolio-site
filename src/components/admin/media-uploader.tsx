@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -201,10 +202,11 @@ export default function MediaUploader({ project, onClose, onUpdate }: MediaUploa
               {/* Image Gallery */}
               <div className="space-y-4">
                 <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden relative">
-                  <img
+                  <Image
                     src={images[selectedImageIndex]?.src}
                     alt={`Project image ${selectedImageIndex + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   {images.length > 1 && (
                     <>
@@ -239,10 +241,12 @@ export default function MediaUploader({ project, onClose, onUpdate }: MediaUploa
                   {images.map((image, index) => (
                     <Card key={index} className={`p-3 ${selectedImageIndex === index ? 'ring-2 ring-blue-500' : ''}`}>
                       <div className="flex space-x-3">
-                        <img
+                        <Image
                           src={image.src}
                           alt={`Thumbnail ${index + 1}`}
-                          className="w-16 h-16 object-cover rounded"
+                          width={64}
+                          height={64}
+                          className="w-16 h-16 object-cover rounded cursor-pointer"
                           onClick={() => setSelectedImageIndex(index)}
                         />
                         <div className="flex-1 space-y-2">

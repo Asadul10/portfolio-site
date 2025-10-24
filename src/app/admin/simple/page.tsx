@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -42,7 +43,7 @@ export default function SimpleAdminDashboard() {
   useEffect(() => {
     checkAuth();
     fetchProjects();
-  }, []);
+  }, [checkAuth, fetchProjects]);
 
   const checkAuth = async () => {
     try {
@@ -533,10 +534,11 @@ export default function SimpleAdminDashboard() {
               <Card key={project.slug} className="overflow-hidden">
                 <div className="aspect-video bg-gray-100 relative">
                   {project.cover ? (
-                    <img
+                    <Image
                       src={project.cover}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -743,9 +745,11 @@ export default function SimpleAdminDashboard() {
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {uploadedImages.map((img, index) => (
                           <div key={index} className="relative border rounded-lg p-2">
-                            <img
+                            <Image
                               src={img.preview}
                               alt={`Preview ${index + 1}`}
+                              width={200}
+                              height={96}
                               className="w-full h-24 object-cover rounded"
                             />
                             <button

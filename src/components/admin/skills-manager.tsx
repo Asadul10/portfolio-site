@@ -17,7 +17,7 @@ export default function SkillsManager() {
 
   useEffect(() => {
     fetchSkills();
-  }, []);
+  }, [fetchSkills]);
 
   const fetchSkills = async () => {
     try {

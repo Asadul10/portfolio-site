@@ -16,7 +16,7 @@ export default function MDXSkillsManager() {
 
   useEffect(() => {
     fetchSkills();
-  }, []);
+  }, [fetchSkills]);
 
   const fetchSkills = async () => {
     try {

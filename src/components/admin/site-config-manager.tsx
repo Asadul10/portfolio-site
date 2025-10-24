@@ -35,7 +35,7 @@ export default function SiteConfigManager() {
 
   useEffect(() => {
     fetchConfig();
-  }, []);
+  }, [fetchConfig]);
 
   const fetchConfig = async () => {
     try {

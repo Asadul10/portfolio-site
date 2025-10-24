@@ -82,7 +82,7 @@ export function AboutSection() {
                 className="space-y-4 text-muted-foreground"
               >
                 <p>
-                  I'm a passionate cybersecurity professional and full-stack developer with over 5 years of experience 
+                  I&apos;m a passionate cybersecurity professional and full-stack developer with over 5 years of experience 
                   in building secure, scalable applications and conducting comprehensive security assessments.
                 </p>
                 <p>

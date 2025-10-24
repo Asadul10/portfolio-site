@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,7 +22,7 @@ export default function MDXProjectsManager() {
     fetchProjects();
   }, [fetchProjects]);
 
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/projects', {
         credentials: 'include',
@@ -48,7 +48,7 @@ export default function MDXProjectsManager() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [toast]);
 
   const handleDeleteProject = async (projectId: string) => {
     if (!confirm('Are you sure you want to delete this project? This will delete the MDX file.')) {

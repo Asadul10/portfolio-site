@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -18,7 +18,7 @@ export default function MDXSkillsManager() {
     fetchSkills();
   }, [fetchSkills]);
 
-  const fetchSkills = async () => {
+  const fetchSkills = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/skills', {
         credentials: 'include',
@@ -44,7 +44,7 @@ export default function MDXSkillsManager() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [toast]);
 
   const handleSaveSkills = async () => {
     setIsSaving(true);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -45,7 +45,7 @@ export default function SimpleAdminDashboard() {
     fetchProjects();
   }, [checkAuth, fetchProjects]);
 
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     try {
       const response = await fetch('/api/auth/me', {
         credentials: 'include',
@@ -63,9 +63,9 @@ export default function SimpleAdminDashboard() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [router]);
 
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/projects', {
         credentials: 'include',
@@ -78,7 +78,7 @@ export default function SimpleAdminDashboard() {
     } catch (error) {
       console.error('Error fetching projects:', error);
     }
-  };
+  }, []);
 
   const handleLogout = async () => {
     try {

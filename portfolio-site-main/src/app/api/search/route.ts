@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { searchProjects } from '@/lib/projects';
 import { searchPosts } from '@/lib/posts';
+import { ProjectCategory } from '@/types';
 
 export async function GET(request: NextRequest) {
   try {
@@ -21,7 +22,7 @@ export async function GET(request: NextRequest) {
       slug: string;
       summary: string;
       tags: string[];
-      category?: string;
+      category?: ProjectCategory;
       year?: number;
       date?: string;
     }> = [];

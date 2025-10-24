@@ -15,7 +15,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    let results = [];
+    let results: Array<{
+      type: 'project' | 'post';
+      title: string;
+      slug: string;
+      summary: string;
+      tags: string[];
+      category?: string;
+      year?: number;
+      date?: string;
+    }> = [];
 
     if (type === 'all' || type === 'projects') {
       const projects = await searchProjects(query);

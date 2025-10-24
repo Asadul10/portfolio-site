@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { TimelineItem } from '@/types';
 
 interface TimelineProps {
-  items: TimelineItem[];
+  items: readonly TimelineItem[];
 }
 
 export function Timeline({ items }: TimelineProps) {

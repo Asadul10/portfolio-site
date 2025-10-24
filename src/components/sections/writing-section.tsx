@@ -12,7 +12,7 @@ import { BlogPost } from '@/types';
 import { formatDate, debounce } from '@/lib/utils';
 
 interface WritingSectionProps {
-  posts: BlogPost[];
+  posts: readonly BlogPost[];
 }
 
 export function WritingSection({ posts }: WritingSectionProps) {

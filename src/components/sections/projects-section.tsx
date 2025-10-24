@@ -13,7 +13,7 @@ import { siteConfig } from '@/lib/config';
 import { debounce } from '@/lib/utils';
 
 interface ProjectsSectionProps {
-  projects: Project[];
+  projects: readonly Project[];
 }
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {

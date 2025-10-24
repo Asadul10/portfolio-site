@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { ProjectImage } from '@/types';
 
 interface GalleryProps {
-  images: ProjectImage[];
+  images: readonly ProjectImage[];
   activeIndex?: number;
   onImageChange?: (index: number) => void;
 }

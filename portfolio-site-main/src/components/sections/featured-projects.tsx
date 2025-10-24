@@ -6,7 +6,7 @@ import { ProjectCard } from '@/components/project-card';
 import { Project } from '@/types';
 
 interface FeaturedProjectsProps {
-  projects: Project[];
+  projects: readonly Project[];
 }
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {

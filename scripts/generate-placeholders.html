@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Placeholder Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .placeholder { 
+            width: 400px; 
+            height: 300px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        canvas { margin: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Placeholder Images</h1>
+    <p>Right-click on each image below and save as the corresponding filename:</p>
+    
+    <div class="placeholder" id="secure-acl-cover">Secure Network Lab</div>
+    <div class="placeholder" id="pt-dashboard-cover">PT Dashboard</div>
+    <div class="placeholder" id="malware-lab-cover">Malware Analysis Lab</div>
+    <div class="placeholder" id="breach-analysis-cover">Data Breach Analysis</div>
+
+    <script>
+        // Generate placeholder images
+        function generateImage(text, filename) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 400, 300);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 300);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, 200, 150);
+            
+            // Convert to blob and download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+        
+        // Generate all images
+        generateImage('Secure Network Lab', 'cover.jpg');
+        generateImage('PT Dashboard', 'cover.jpg');
+        generateImage('Malware Analysis Lab', 'cover.jpg');
+        generateImage('Data Breach Analysis', 'cover.jpg');
+    </script>
+</body>
+</html>

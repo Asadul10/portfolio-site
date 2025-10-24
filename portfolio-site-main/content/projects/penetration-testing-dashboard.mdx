@@ -1,0 +1,171 @@
+---
+title: "Penetration Testing Dashboard"
+slug: "penetration-testing-dashboard"
+category: "Web Apps"
+year: 2024
+tags: ["React", "Node.js", "MongoDB", "Security", "Dashboard", "API"]
+summary: "Built a comprehensive dashboard for managing penetration testing projects with real-time vulnerability tracking."
+cover: "/projects/pt-dashboard/cover.svg"
+images:
+  - src: "/projects/pt-dashboard/dashboard.png"
+    caption: "Main dashboard with project overview"
+  - src: "/projects/pt-dashboard/vulnerabilities.png"
+    caption: "Vulnerability management interface"
+  - src: "/projects/pt-dashboard/reports.png"
+    caption: "Automated report generation"
+links:
+  demo: "https://pt-dashboard-demo.vercel.app"
+  repo: "https://github.com/asadul/pt-dashboard"
+  docs: "https://pt-dashboard-docs.vercel.app"
+featured: true
+---
+
+# Project Overview
+
+A full-stack web application designed to streamline penetration testing workflows and vulnerability management. The dashboard provides security professionals with tools to organize, track, and report on security assessments efficiently.
+
+## Key Features
+
+### Project Management
+- Create and organize penetration testing projects
+- Track project status and timelines
+- Assign team members and roles
+- Document project scope and objectives
+
+### Vulnerability Tracking
+- Real-time vulnerability discovery and logging
+- Severity classification and risk assessment
+- Evidence collection and proof-of-concept storage
+- Remediation tracking and verification
+
+### Report Generation
+- Automated report templates
+- Customizable report sections
+- Export to multiple formats (PDF, HTML, Word)
+- Executive summary generation
+
+## Technical Stack
+
+### Frontend
+- **React 18** with TypeScript
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Query** for data fetching
+- **Zustand** for state management
+
+### Backend
+- **Node.js** with Express
+- **MongoDB** with Mongoose
+- **JWT** authentication
+- **Multer** for file uploads
+- **Puppeteer** for PDF generation
+
+### Security Features
+- Role-based access control (RBAC)
+- Input validation and sanitization
+- Rate limiting and CSRF protection
+- Secure file upload handling
+- Audit logging
+
+## Architecture
+
+The application follows a microservices architecture with:
+
+- **API Gateway** for request routing
+- **Authentication Service** for user management
+- **Project Service** for project operations
+- **Vulnerability Service** for security data
+- **Report Service** for document generation
+
+## Database Design
+
+```javascript
+// Project Schema
+const ProjectSchema = new Schema({
+  name: { type: String, required: true },
+  description: String,
+  status: { type: String, enum: ['planning', 'active', 'completed'] },
+  startDate: Date,
+  endDate: Date,
+  team: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  vulnerabilities: [{ type: Schema.Types.ObjectId, ref: 'Vulnerability' }]
+});
+
+// Vulnerability Schema
+const VulnerabilitySchema = new Schema({
+  title: { type: String, required: true },
+  description: String,
+  severity: { type: String, enum: ['critical', 'high', 'medium', 'low'] },
+  status: { type: String, enum: ['open', 'in-progress', 'resolved'] },
+  evidence: [String], // File paths
+  remediation: String,
+  project: { type: Schema.Types.ObjectId, ref: 'Project' }
+});
+```
+
+## API Endpoints
+
+### Projects
+- `GET /api/projects` - List all projects
+- `POST /api/projects` - Create new project
+- `GET /api/projects/:id` - Get project details
+- `PUT /api/projects/:id` - Update project
+- `DELETE /api/projects/:id` - Delete project
+
+### Vulnerabilities
+- `GET /api/vulnerabilities` - List vulnerabilities
+- `POST /api/vulnerabilities` - Create vulnerability
+- `PUT /api/vulnerabilities/:id` - Update vulnerability
+- `DELETE /api/vulnerabilities/:id` - Delete vulnerability
+
+### Reports
+- `POST /api/reports/generate` - Generate report
+- `GET /api/reports/:id/download` - Download report
+
+## Security Considerations
+
+- All API endpoints require authentication
+- Input validation using Joi schemas
+- File upload restrictions and virus scanning
+- SQL injection prevention through parameterized queries
+- XSS protection with content security policies
+- Regular security audits and dependency updates
+
+## Performance Optimizations
+
+- Database indexing for fast queries
+- Redis caching for frequently accessed data
+- Image optimization and lazy loading
+- Code splitting and bundle optimization
+- CDN integration for static assets
+
+## Deployment
+
+The application is deployed using:
+- **Frontend**: Vercel for static hosting
+- **Backend**: Railway for API hosting
+- **Database**: MongoDB Atlas
+- **File Storage**: AWS S3
+- **Monitoring**: Sentry for error tracking
+
+## Future Enhancements
+
+- Integration with vulnerability scanners
+- Automated vulnerability detection
+- Machine learning for risk assessment
+- Mobile application
+- Advanced reporting features
+- Team collaboration tools
+
+## Notes & Learnings
+
+This project provided valuable experience in:
+
+- Building secure web applications from scratch
+- Implementing proper authentication and authorization
+- Designing scalable database schemas
+- Creating intuitive user interfaces for complex data
+- Integrating multiple services and APIs
+- Following security best practices throughout development
+
+The dashboard has been successfully used in real penetration testing engagements, significantly improving efficiency and organization of security assessments.

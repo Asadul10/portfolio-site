@@ -1,0 +1,93 @@
+---
+title: "Secure Network Lab – ACL & Telnet Hardening"
+slug: "secure-network-lab-acl"
+category: "Networking"
+year: 2025
+tags: ["Cisco", "ACL", "Telnet", "Security", "Network Hardening"]
+summary: "Configured extended ACLs and VTY restrictions for secure remote access in a multi-router environment."
+cover: "/projects/secure-acl/cover.svg"
+images:
+  - src: "/projects/secure-acl/step1.png"
+    caption: "Ingress ACL on G0/0/1.47"
+  - src: "/projects/secure-acl/step2.png"
+    caption: "VTY access-class and transport"
+  - src: "/projects/secure-acl/step3.png"
+    caption: "ACL verification and testing"
+pdfs:
+  - src: "/projects/secure-acl/report.pdf"
+    title: "Lab Report"
+    description: "Step-by-step configuration and verification"
+links:
+  demo: "https://example.com/demo"
+  repo: "https://github.com/asadul/secure-network-lab"
+featured: true
+---
+
+# Project Overview
+
+This comprehensive network security lab demonstrates the implementation of Access Control Lists (ACLs) and VTY line hardening to secure remote access in a multi-router Cisco environment. The project focuses on protecting network infrastructure from unauthorized access while maintaining operational efficiency.
+
+## Objectives
+
+- Configure extended ACLs to control traffic flow
+- Implement VTY line security with access-class restrictions
+- Set up secure transport protocols (SSH over Telnet)
+- Test and verify security configurations
+- Document the hardening process
+
+## Technical Implementation
+
+### ACL Configuration
+
+The lab implements both standard and extended ACLs to control traffic:
+
+```cisco
+! Extended ACL for web traffic
+access-list 100 permit tcp 192.168.1.0 0.0.0.255 any eq 80
+access-list 100 permit tcp 192.168.1.0 0.0.0.255 any eq 443
+access-list 100 deny ip any any
+
+! Apply to interface
+interface GigabitEthernet0/0/1.47
+ ip access-group 100 in
+```
+
+### VTY Security
+
+Secure remote access configuration:
+
+```cisco
+! VTY line configuration
+line vty 0 4
+ access-class 10 in
+ transport input ssh
+ login local
+ exec-timeout 5 0
+```
+
+## Security Features
+
+- **Traffic Filtering**: Granular control over network traffic
+- **Access Restrictions**: Limited VTY access to specific networks
+- **Protocol Security**: SSH encryption for remote management
+- **Session Timeouts**: Automatic disconnection for idle sessions
+- **Authentication**: Local user authentication for VTY access
+
+## Results
+
+Successfully implemented network security measures that:
+- Blocked unauthorized traffic while allowing legitimate services
+- Secured remote access with proper authentication
+- Maintained network performance and reliability
+- Provided comprehensive logging and monitoring
+
+## Notes & Learnings
+
+This project reinforced the importance of defense-in-depth strategies in network security. Key takeaways include:
+
+- ACL placement significantly impacts performance and security
+- VTY hardening is crucial for preventing unauthorized access
+- Regular testing and verification ensure configurations work as intended
+- Documentation is essential for maintaining security posture
+
+The lab provided hands-on experience with Cisco security features and demonstrated practical approaches to network hardening in enterprise environments.

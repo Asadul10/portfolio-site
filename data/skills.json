@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Cybersecurity",
+    "skills": [
+      "Penetration Testing",
+      "Vulnerability Assessment",
+      "Security Architecture",
+      "Incident Response",
+      "Threat Modeling"
+    ]
+  },
+  {
+    "name": "Frontend",
+    "skills": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion"
+    ]
+  },
+  {
+    "name": "Backend",
+    "skills": [
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis"
+    ]
+  },
+  {
+    "name": "DevOps",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "CI/CD",
+      "Terraform"
+    ]
+  },
+  {
+    "name": "Networking",
+    "skills": [
+      "Cisco",
+      "Firewall Configuration",
+      "Network Security",
+      "VPN",
+      "Load Balancing"
+    ]
+  },
+  {
+    "name": "Data/ML",
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "Pandas",
+      "NumPy",
+      "Jupyter"
+    ]
+  }
+]

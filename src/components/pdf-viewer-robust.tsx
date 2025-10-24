@@ -111,9 +111,9 @@ export function PDFViewerRobust({ src, title, description }: PDFViewerProps) {
         <FileText className="w-16 h-16 mx-auto" />
       </div>
       <h3 className="text-lg font-medium text-gray-900 mb-2">PDF Ready to View</h3>
-      <p className="text-gray-600 mb-6">
-        Choose how you'd like to view the PDF document
-      </p>
+             <p className="text-gray-600 mb-6">
+               Choose how you&apos;d like to view the PDF document
+             </p>
       <div className="space-x-3">
         <Button
           onClick={tryViewer}

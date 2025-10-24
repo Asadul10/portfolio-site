@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
+import { FolderOpen } from 'lucide-react';
 import { Project, ProjectCategory } from '@/types';
 import { Plus, Edit, Trash2, Eye, Upload, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectForm from './project-form';

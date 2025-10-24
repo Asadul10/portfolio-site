@@ -91,9 +91,9 @@ export function AboutSection() {
                   I combine security-first principles with modern web technologies.
                 </p>
                 <p>
-                  I'm passionate about helping organizations strengthen their security posture through both 
-                  proactive development practices and thorough penetration testing. When I'm not coding or 
-                  conducting security assessments, you'll find me contributing to open-source projects and 
+                  I&apos;m passionate about helping organizations strengthen their security posture through both 
+                  proactive development practices and thorough penetration testing.                   When I&apos;m not coding or 
+                  conducting security assessments, you&apos;ll find me contributing to open-source projects and
                   sharing knowledge through technical writing.
                 </p>
               </motion.div>

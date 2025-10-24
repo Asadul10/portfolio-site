@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { SkillCategory } from '@/types';
 
 interface SkillMatrixProps {
-  skills: Record<string, string[]>;
+  skills: Record<string, readonly string[]>;
 }
 
 export function SkillMatrix({ skills }: SkillMatrixProps) {

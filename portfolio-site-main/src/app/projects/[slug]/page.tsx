@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { SiteShell } from '@/components/site-shell';
 import { ProjectDetail } from '@/components/sections/project-detail';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/projects';
-import { generateMetadata } from '@/lib/utils';
+import { generateMetadata as generateMetadataUtil } from '@/lib/utils';
 
 interface ProjectPageProps {
   params: {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     };
   }
 
-  return generateMetadata({
+  return generateMetadataUtil({
     title: project.title,
     description: project.summary,
     image: project.cover,
